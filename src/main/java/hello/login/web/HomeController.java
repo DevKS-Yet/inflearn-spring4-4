@@ -81,16 +81,7 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String homeLoginV3Spring (@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member member, Model model) {
-
-        HttpSession session = request.getSession(false);
-
-        //로그인
-        if (session == null) {
-            return "home";
-        }
-
-        Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
+    public String homeLoginV3Spring (@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
 
         //세션에 회원 데이터가 없으면 home
         if (loginMember == null) {
